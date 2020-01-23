@@ -19,4 +19,8 @@
 type="image/x-icon"/>
 
 <link href='{{ "/feed.xml" | relURL }}' rel="alternate" type="application/atom+xml" title="{{ .Site.Title }}" />
-{{ template "_internal/google_analytics_async.html" . }}
+
+<!-- Load our custom (non-theme) CSS scripts -->
+{{ range .Site.Params.customCSS -}}
+   <link rel="stylesheet" href="{{ . | absURL }}">
+{{- end }}
